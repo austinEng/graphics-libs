@@ -1,0 +1,8 @@
+cmake_policy(SET CMP0048 OLD)
+project(graphics_libs)
+cmake_minimum_required(VERSION 2.8.6)
+
+set(${PROJECT_NAME}_VERSION_MAJOR 0 CACHE STRING "major version" FORCE)
+set(${PROJECT_NAME}_VERSION_MINOR 1 CACHE STRING "minor version" FORCE)
+set(${PROJECT_NAME}_VERSION ${${PROJECT_NAME}_VERSION_MAJOR}.${${PROJECT_NAME}_VERSION_MINOR} CACHE STRING "version" FORCE)
+
