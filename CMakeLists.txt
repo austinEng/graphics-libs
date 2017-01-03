@@ -30,4 +30,9 @@ ExternalProject_Add(OpenEXR
     -DILMBASE_PACKAGE_PREFIX=${PROJECT_SOURCE_DIR}
 )
 
+ExternalProject_Add(ae_core
+  GIT_REPOSITORY git@github.com:austinEng/ae_core.git
+  CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${PROJECT_SOURCE_DIR}
+)
+
 add_dependencies(OpenEXR openexr)
