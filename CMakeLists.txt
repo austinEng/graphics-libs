@@ -30,6 +30,8 @@ ExternalProject_Add(OpenEXR
     -DILMBASE_PACKAGE_PREFIX=${PROJECT_SOURCE_DIR}
 )
 
+add_dependencies(OpenEXR openexr)
+
 ExternalProject_Add(tbb
   GIT_REPOSITORY git@github.com:wjakob/tbb.git
   CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${PROJECT_SOURCE_DIR}
@@ -40,4 +42,12 @@ ExternalProject_Add(ae_core
   CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${PROJECT_SOURCE_DIR}
 )
 
-add_dependencies(OpenEXR openexr)
+ExternalProject_Add(GLEW
+  GIT_REPOSITORY git@github.com:nigels-com/glew.git
+  CONFIGURE_COMMAND cd ../GLEW/auto && make && cd - && cmake ../GLEW/build/cmake -DCMAKE_INSTALL_PREFIX=${PROJECT_SOURCE_DIR}
+)
+
+ExternalProject_Add(GLFW
+  GIT_REPOSITORY git@github.com:glfw/glfw.git
+  CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${PROJECT_SOURCE_DIR}
+)
