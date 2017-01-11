@@ -44,7 +44,7 @@ ExternalProject_Add(ae_core
 
 ExternalProject_Add(GLEW
   GIT_REPOSITORY git@github.com:nigels-com/glew.git
-  CONFIGURE_COMMAND cd ../GLEW/auto && make && cd - && cmake ../GLEW/build/cmake -DCMAKE_INSTALL_PREFIX=${PROJECT_SOURCE_DIR}
+  CONFIGURE_COMMAND cd ../GLEW/auto && make && cd ../ && cmake ../GLEW/build/cmake -DCMAKE_INSTALL_PREFIX=${PROJECT_SOURCE_DIR}
 )
 
 ExternalProject_Add(GLFW
