@@ -61,6 +61,17 @@ else()
   )
 endif()
 
+ExternalProject_Add(libpng
+  GIT_REPOSITORY https://github.com/jherico/libpng.git
+  CONFIGURE_COMMAND cmake ../libpng
+  BUILD_COMMAND make
+  INSTALL_COMMAND
+    cp libpng.a ${PROJECT_SOURCE_DIR}/lib &&
+    mkdir -p ${PROJECT_SOURCE_DIR}/include/png &&
+    cp ./pnglibconf.h ${PROJECT_SOURCE_DIR}/include/png &&
+    cp ../libpng/png.h ../libpng/pngdebug.h ../libpng/pnginfo.h ../libpng/pngpriv.h ../libpng/pngstruct.h ../libpng/pngconf.h ${PROJECT_SOURCE_DIR}/include/png
+)
+
 #ExternalProject_Add(GLEW
 #  GIT_REPOSITORY git@github.com:nigels-com/glew.git
 #  CONFIGURE_COMMAND cd ../GLEW/auto && make && cd ../ && cmake ../GLEW/build/cmake -DCMAKE_INSTALL_PREFIX=${PROJECT_SOURCE_DIR}
